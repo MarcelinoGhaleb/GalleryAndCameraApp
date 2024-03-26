@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "name": "Iron Man",
+    "description": "Genius billionaire playboy philanthropist.",
+    "image": "https://pixabay.com/get/g26d17c0a293dff20df0809d54b4776543e9a2b3742b10515c53e864cd9d1f6b4f80c046c8715318b7eb0ddaca86a0c5e8682c8de24e952339b57b1d2e3bc36e79559ebf9a4ff46d3e2df836871adda77_640.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Captain America",
+    "description": "Super soldier out of time.",
+    "image": "https://pixabay.com/get/g7456e2e22eb890ead25e1a100905ac133666fb9c4ea926f96c5790d94127fdfc62194ca1db02d031ac63849b81722e04a7b48c7a04b0ed89993d96a7cd528fa9b62b7c6751f56d67a812f0ae5b06a703_640.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Thor",
+    "description": "God of Thunder.",
+    "image": "https://media.istockphoto.com/id/1147508579/photo/man-in-cosplaying-thor-isolated-on-white-studio-background.jpg?s=1024x1024&w=is&k=20&c=RHNAGPZYA48BSp3ZcVioIo6b7JOWSXV3wXjxQ-wqvXA="
+  },
+  {
+    "id": "4",
+    "name": "Hulk",
+    "description": "Big green smashing machine.",
+    "image": "https://th.bing.com/th/id/R.2fa6e0828fd704773f5300b31f583e5d?rik=H5qZl51aBfPclQ&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "5",
+    "name": "Black Widow",
+    "description": "Master spy and assassin.",
+    "image": "https://th.bing.com/th/id/OIP.UrssMPCwJqN8Ozyw4LFlzgHaHP?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "6",
+    "name": "Hawkeye",
+    "description": "Master archer with keen eyesight.",
+    "image": "https://th.bing.com/th/id/R.4acb6e7f882e71f2d76b5ee435ae0e05?rik=%2fQn%2bc03HIF0S%2bA&riu=http%3a%2f%2fclipart-library.com%2fnew_gallery%2f26-267592_hawkeye-hawkeye-comics-png.png&ehk=3FeN0nmwX446g27ky2PMKAz1Vhurjwak7M6YFArAtcE%3d&risl=&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "7",
+    "name": "Scarlet Witch",
+    "description": "Powerful magic-wielding Avenger.",
+    "image": "https://th.bing.com/th/id/OIP.2l8Vu3iKv04E3NvjsB1OAwHaKp?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "8",
+    "name": "Vision",
+    "description": "Synthetic android with an infinity stone.",
+    "image": "https://th.bing.com/th/id/OIP.yPclwnQf9uJ1Ia31j37ouQDYEs?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "9",
+    "name": "Black Panther",
+    "description": "King of Wakanda with enhanced strength.",
+    "image": "https://th.bing.com/th/id/R.1bb4541b523715fc3b35544f3cebea45?rik=z2Vuw8VgD%2fwewQ&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "10",
+    "name": "Ant-Man",
+    "description": "Size-shifting hero with a big heart.",
+    "image": "https://th.bing.com/th/id/OIP.Zo9Mjx93ENsDwWRTz3ui5wHaHa?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "11",
+    "name": "Wasp",
+    "description": "Partner of Ant-Man with wings and blasters.",
+    "image": "https://th.bing.com/th/id/OIP.vxCbs6MZXLROt5P5mC_K9wHaKO?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "12",
+    "name": "Doctor Strange",
+    "description": "Master of the mystic arts.",
+    "image": "https://th.bing.com/th/id/OIP.x30yRAttaWiSkHDV0YOjqgHaJ3?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "13",
+    "name": "Spider-Man",
+    "description": "Friendly neighborhood wall-crawler.",
+    "image": "https://th.bing.com/th/id/OIP.bcQmOWw_Xh2-1A7XehSm7gHaII?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "14",
+    "name": "Falcon",
+    "description": "Winged Avenger with military training.",
+    "image": "https://th.bing.com/th/id/R.c5dad4a2e0b713b78f5f74251b03dc79?rik=mU76HSt46AtIQQ&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "15",
+    "name": "Winter Soldier",
+    "description": "Former brainwashed assassin turned hero.",
+    "image": "https://th.bing.com/th/id/OIP.jfmjztmoLN0rNugU4GlzaQHaJz?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "16",
+    "name": "War Machine",
+    "description": "Military hero with advanced armored suit.",
+    "image": "https://th.bing.com/th/id/OIP.UO47qNIxHpHSYymPmMN6FAHaLY?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "17",
+    "name": "Gamora",
+    "description": "Deadliest woman in the galaxy.",
+    "image": "https://th.bing.com/th/id/OIP.CIdtoEDDBc6A0DoWtzg62gHaO7?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "18",
+    "name": "Nebula",
+    "description": "Cybernetically enhanced daughter of Thanos.",
+    "image": "https://th.bing.com/th/id/R.bdb82e01ee4699aee0363a5a9468d0f1?rik=XJueepsy5f8uaA&pid=ImgRaw&r=0"
+  },
+  {
+    "id": "19",
+    "name": "Rocket Raccoon",
+    "description": "Smart-mouthed genetically modified raccoon.",
+    "image": "https://th.bing.com/th/id/OIP.8WkqAr9blUMgOB0TqCBeUQHaKD?rs=1&pid=ImgDetMain"
+  },
+  {
+    "id": "20",
+    "name": "Groot",
+    "description": "Flora colossus and loyal friend.",
+    "image": "https://th.bing.com/th/id/OIP.yoNQjhHZRsMr5e0uMIvR4AHaLc?rs=1&pid=ImgDetMain"
+  }
+]
