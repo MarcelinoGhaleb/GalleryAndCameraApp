@@ -22,10 +22,10 @@ const HomeScreen = ({navigation}) => {
         <MapView
           style={ScreenStyles.map}
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitude: 33.88863,
+            longitude: 35.49548,
+            latitudeDelta: 0.05,
+            longitudeDelta: 0.06,
           }}
         />
       </View>

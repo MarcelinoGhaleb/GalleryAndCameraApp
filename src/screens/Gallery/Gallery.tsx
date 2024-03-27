@@ -1,99 +1,112 @@
-import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Image,
-  FlatList,
-  ActivityIndicator,
-  RefreshControl,
-  Dimensions,
-} from 'react-native';
-import {
-  PhotoIdentifier,
-  CameraRoll,
-} from '@react-native-camera-roll/camera-roll';
-import styles from '../../GlobalStyles/cameraButtonsStyles';
+import React, {useState, useEffect} from 'react';
+import {View, FlatList, Image, RefreshControl, Animated, Button} from 'react-native';
+import axios from 'axios';
+import MapView, {Marker} from 'react-native-maps';
 import GalleryStyles from './styles';
 
-const {width} = Dimensions.get('window');
-const imageWidth = (width - 20) / 3;
+interface Photo {
+  id: number;
+  url: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
+}
 
-interface Props {}
-
-const Gallery: React.FC<Props> = () => {
-  const [loading, setLoading] = useState(false);
+const Gallery = () => {
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [refreshing, setRefreshing] = useState(false);
-  const [albumPhotos, setAlbumPhotos] = useState<PhotoIdentifier[]>([]);
-  const [nextPage, setNextPage] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<{
+    latitude: number;
+    longitude: number;
+  } | null>(null);
+  const translateY = new Animated.Value(0);
 
-  const fetchAlbumPhotos = async (after?: string) => {
+  const fetchData = async () => {
     try {
-      setLoading(true);
-      const cameraRollPhotos = await CameraRoll.getPhotos({
-        groupTypes: 'All',
-        first: 21,
-        after,
-      });
-      setAlbumPhotos(existingPhotos => [
-        ...existingPhotos,
-        ...cameraRollPhotos.edges,
-      ]);
-      setNextPage(
-        cameraRollPhotos.page_info.has_next_page
-          ? cameraRollPhotos.page_info.end_cursor
-          : null,
+      const response = await axios.get(
+        'https://660411a42393662c31d0895c.mockapi.io/pics',
       );
+      setPhotos(response.data);
     } catch (error) {
-      console.error('Error fetching photos:', error);
+      console.error('Error fetching data:', error);
     } finally {
-      setLoading(false);
       setRefreshing(false);
     }
   };
 
   useEffect(() => {
-    fetchAlbumPhotos();
+    fetchData();
   }, []);
 
-  const loadMorePhotos = () => {
-    if (!loading && nextPage) {
-      fetchAlbumPhotos(nextPage);
-    }
-  };
-
   const onRefresh = () => {
-    setAlbumPhotos([]);
-    setNextPage(null);
     setRefreshing(true);
-    fetchAlbumPhotos();
+    fetchData();
   };
 
-  const renderPhotoItem = ({item}: {item: PhotoIdentifier}) => (
-    <View style={GalleryStyles.rowContainer}>
-      <Image
-        source={{uri: item.node.image.uri}}
-        style={{width: imageWidth, height: imageWidth + 50}}
-      />
-    </View>
-  );
+  const handleImagePress = (latitude: number, longitude: number) => {
+    setSelectedLocation({latitude, longitude});
+  };
+
+  const handleCloseMap = () => {
+    Animated.timing(translateY, {
+      toValue: -700,
+      duration: 300,
+      useNativeDriver: true,
+    }).start(() => {
+      setSelectedLocation(null);
+      translateY.setValue(0);
+    });
+  };
 
   return (
-    <View style={styles.viewContainer}>
-      <View style={GalleryStyles.viewContainer}>
-        <FlatList
-          data={albumPhotos}
-          renderItem={renderPhotoItem}
-          keyExtractor={(item, index) => index.toString()}
-          onEndReached={loadMorePhotos}
-          onEndReachedThreshold={0.5}
-          ListFooterComponent={loading ? <ActivityIndicator /> : null}
-          horizontal={false}
-          numColumns={3}
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }
-          contentContainerStyle={{paddingHorizontal: 8}}
-        />
-      </View>
+    <View style={GalleryStyles.container}>
+      <FlatList
+        data={photos}
+        renderItem={({item}) => (
+          <View style={GalleryStyles.rowContainer}>
+            <View style={GalleryStyles.viewContainer}>
+              <Image
+                source={{uri: `file://${item.url}`}}
+                style={GalleryStyles.image}
+              />
+              <Button
+                title="View Location"
+                onPress={() =>
+                  handleImagePress(item.location.latitude, item.location.longitude)
+                }
+                color="#91a3ff"
+              />
+            </View>
+          </View>
+        )}
+        keyExtractor={item => item.id.toString()}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      />
+      {selectedLocation && (
+        <>
+          <Animated.View style={[GalleryStyles.mapContainer, {transform: [{translateY}]}]}>
+            <MapView
+              style={GalleryStyles.map}
+              initialRegion={{
+                latitude: selectedLocation.latitude,
+                longitude: selectedLocation.longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}>
+              <Marker
+                coordinate={{
+                  latitude: selectedLocation.latitude,
+                  longitude: selectedLocation.longitude,
+                }}
+              />
+            </MapView>
+            <Button title="Close Map" onPress={handleCloseMap} />
+          </Animated.View>
+        </>
+      )}
     </View>
   );
 };

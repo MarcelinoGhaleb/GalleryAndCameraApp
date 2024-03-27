@@ -1,6 +1,10 @@
 import {StyleSheet} from 'react-native';
 
 const GalleryStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#408EC6',
+  },
   rowContainer: {
     flexDirection: 'row',
     borderBottomWidth: 2,
@@ -11,16 +15,27 @@ const GalleryStyles = StyleSheet.create({
   },
   viewContainer: {
     marginVertical: 8,
+    marginLeft: 55,
   },
-  deleteContainer: {
-  
+  image: {
+    width: 300,
+    height: 300,
+    resizeMode: 'cover',
+    alignSelf: 'center', 
   },
-  locationText: {
-  
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: 'black',
-    marginTop: 5,
+  mapContainer: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: '#fff',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 20,
+    alignItems: 'center',
+  },
+  map: {
+    width: '100%',
+    height: '80%',
+    marginBottom: 10,
+    borderRadius: 10,
   },
 });
 

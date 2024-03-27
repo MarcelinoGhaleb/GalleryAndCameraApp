@@ -24,7 +24,10 @@ const camStyles = StyleSheet.create({
     width: 75,
     height: 75,
     borderWidth: 3,
-    borderColor: '#66D9FF', 
+    borderColor: '#66D9FF',
+    position: 'absolute',
+    bottom: -345,
+    right: 80 ,
   },
   capturedImageContainer: {
     width: 300,
@@ -37,6 +40,18 @@ const camStyles = StyleSheet.create({
     width: '65%',
     justifyContent: 'space-between',
     marginTop: 30,
+  },
+  errorText: {
+    color: 'red',
+  },
+  capturedImage: { 
+    width: '100%',
+    height: '100%',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
